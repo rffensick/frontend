@@ -28,9 +28,10 @@ type Props = {
 }
 
 export const UserPage = ({ match }: Props) => {
+  const userId = parseInt(match.params.userId, 10)
+
   const [filterBy, setFilter] = React.useState("all")
 
-  const userId = parseInt(match.params.userId, 10)
   const user = useStore($user)
   const { created, useful } = useStore($cards)
   const isLoading = useStore($isLoading)
